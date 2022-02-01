@@ -4,12 +4,20 @@ class myElement extends HTMLElement { // Con extends HTMLElement comenzamos los 
     this.attachShadow({ mode: "open"}); // ? Asi abrimos el shadown dom (shadow-root (open))
   }
   getTemplate () { 
-    const template = document.createElement('template'); //! slot agrega el texto que esta en la etiqueta my-element
+    const template = document.createElement('template'); //! slot agrega el texto que esta en la etiqueta my-element, name="title" nos ayuda con los multi slots
     template.innerHTML = ` 
       <section>
+
         <h2>
-          <slot></slot>
+          <slot name="title"></slot>
         </h2>
+
+        <div>
+          <p>
+            <slot name="parrafo"></slot>
+          </p>
+        </div>
+
       </section>
       ${this.getStyles()}
     `;
