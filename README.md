@@ -16,3 +16,5 @@
 #element.appendChild: Inserta esa etiqueta que estaba en memoria al DOM real
 .
 #También recordemos que no es buna práctica usar innerHTML 👀
+# :host  
+  muestra como cambiar los estilos de nuestro web component desde javaScript
