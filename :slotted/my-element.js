@@ -24,12 +24,17 @@ class myElement extends HTMLElement { // Con extends HTMLElement comenzamos los 
     return template;
   }
   getStyles () { // ! :host es una pseudo clase, y host se refiere al componenete mismo (my-element)
-                // ? :host(.class) se usa para cambiar los estilos desde el host que tiene una CLASE.
-                // * :host([atributo]) se usa para cambiar estilos del elemento que tiene un ATRIBUTO
-                // ? :host-context(article.class) damos especificidad, la clase .class que este dentro de article.
+                // ? ::slotted (span) todo lo que venga de fuera y este dentro de un span agregale los estilos a ejecutar.
+                // ::slotted(span) debe estar junto sino no funciona.
     return `
       <style>
-        
+        ::slotted(span) {
+          font-size: 30px;
+          color: red;
+        }
+        ::slotted(.texto) { 
+          color: blue;
+        }
       </style>
     `;
   }
