@@ -46,10 +46,6 @@ class myElement extends HTMLElement { // Con extends HTMLElement comenzamos los 
   }          
 }
 
-
-
-
-
 customElements.define('my-element', myElement) // * Asi es como se crea la etiqueta HTML del web component
 
 
