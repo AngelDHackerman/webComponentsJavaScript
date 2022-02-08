@@ -23,9 +23,34 @@ class myElement extends HTMLElement {
      `;
     return template;
   }
-  getStyles () { 
+  getStyles () { // ! usando variables podemos modificar desde "Afuera" nuestros estilos en el shadown dom.
     return `
+      <style> 
+        :host { 
+          --primary-color: tomato;
+          --secondary-color: salmon;
+          --heading-primary: 30px;
+          --heading-secondary: 25px;
+          display: inline-block;
+          width: 100%;
+          min-width: 300px;
+          max-width: 450px;
 
+        }
+        section {
+          background: var(--primary-color);
+        }
+        section div {
+          background: var(--secondary-color);
+        }
+        h1 {
+          font-size: var(--heading-primary);
+        }
+        p { 
+          font-size: var(--heading-secondary);
+        }
+      </style> 
+      
     `;
   }
   render () { // * es importate agregar esto this.shadowRoot.appendChild para que al final renderice todo lo que escribimos

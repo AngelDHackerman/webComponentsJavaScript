@@ -6,8 +6,32 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>slotted</title>
   <link rel="shortcut icon" href="">
+  <style>
+    my-element {  /* Asi es como sobre escribimos los valores de shadown dom desde el "Exterior" */
+      --primary-color: blue;
+      --heading-primary: 50px;
+    }
+    .segundo {
+      --primary-color: red;
+    }
+    .tercero {
+      --secondary-color: lime;
+    }
+  </style>
 </head>
 <body>
+  <my-element>
+    <span slot="title">Soy el titulo agregado con el slot 1</span>
+    <span class="texto" slot="parrafo">Soy el parrafo agregado con el slot</span>
+  </my-element>
+  <my-element class="segundo">
+    <span slot="title">Soy el titulo agregado con el slot 1</span>
+    <span class="texto" slot="parrafo">Soy el parrafo agregado con el slot</span>
+  </my-element>
+  <my-element class="tercero">
+    <span slot="title">Soy el titulo agregado con el slot 1</span>
+    <span class="texto" slot="parrafo">Soy el parrafo agregado con el slot</span>
+  </my-element>
   <my-element>
     <span slot="title">Soy el titulo agregado con el slot 1</span>
     <span class="texto" slot="parrafo">Soy el parrafo agregado con el slot</span>
