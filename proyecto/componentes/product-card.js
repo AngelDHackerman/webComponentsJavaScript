@@ -2,23 +2,41 @@ class productCard extends HTMLElement {
   constructor () { 
     super(); //usado para acceder a HTMLElement
     this.attachShadow({ mode: "open" }); //Abrimos y activamos el shadown DOM
+  } // ! static get es el metodo que activa el observer pde los atributos dentro de nuestra etiqueta web component.
+  static get observedAttributes() {
+    return ["img", "titulo", "price", "description", "collection",]
+  }
+  attibuteChangedCallback (attr, oldValue, newValue) { 
+    if (attr === "img") { 
+      this.img = newValue;
+    }
+    if (attr === "titulo") { 
+      this.titulo = newValue;
+    }
+    if (attr === "price") { 
+      this.price = newValue;
+    }
+    if (attr === "description") { 
+      this.description = newValue;
+    }
+    if (attr === "collection") { 
+      this.collection = newValue;
+    }
   }
   getTemplate () { 
     const template = document.createElement("template");
     template.innerHTML = `
     <main class="container">
       <section class="imgBox">
-        <img src="../imgs/nike-blue.png" />
+        <img src="${this.img}" />
       </section>
       <section class="details">
         <div class="content">
-          <h2>Hola mundo</h2>
+          <h2>${this.titulo}<span>${this.collection}</span></h2>
           <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Enim veritatis temporibus consequuntur quam veniam harum beatae corrupti sequi eligendi velit provident eveniet facere voluptatibus corporis voluptas, aliquid deleniti dolores! Reprehenderit.
-            Deserunt, eligendi, excepturi fuga veniam sint suscipit similique qui blanditiis tempore dignissimos consectetur vitae vel reiciendis voluptate, sed dolores quaerat aperiam laboriosam itaque aspernatur incidunt rerum temporibus! Earum, rem tenetur.
-            Illo maxime perferendis sequi nisi odit minus doloremque neque nesciunt qui hic inventore consequatur ipsam fugiat sapiente, aliquid iste totam voluptas reiciendis animi, nobis nam ratione! Distinctio voluptatibus fuga alias?
+            ${this.description}
           </p>
-          <h3>$300 USD</h3>
+          <h3>${this.price}</h3>
           <button>Comprar</button>
         </div>
       </section>
